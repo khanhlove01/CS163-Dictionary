@@ -3,6 +3,7 @@
 void inter_face()
 {
 	unordered_map<string, string> mymap;
+	vector <string> v;
 	int dataset = 0;
 	while (1)
 	{
@@ -40,11 +41,11 @@ void inter_face()
 			ifstream fin;
 			if (option == 4)
 			{
-				input_data_slang(mymap, fin);
+				input_data_slang(mymap, fin,v);
 			}
 			else if(option == 5)
 			{
-				input_data_emotional(mymap, fin);
+				input_data_emotional(mymap, fin,v);
 			}
 			system("pause");
 		}
@@ -72,18 +73,22 @@ void inter_face()
 		}
 		if (choose == 5)
 		{
-			function5_edit_definition(mymap,dataset);
+			function5_edit_definition(mymap,v,dataset);
 			system("pause");
 		}
 		if (choose == 6)
 		{
-			function6_edit_definition(mymap);
+			function6_edit_definition(mymap,v,dataset);
 			system("pause");
 		}
 		if (choose == 7)
 		{
-			function7_remove(mymap);
+			function7_remove(mymap,v,dataset);
 			system("pause");
+		}
+		if (choose == 8)
+		{
+			function8_reset(mymap,dataset,v);
 		}
 	}
 }

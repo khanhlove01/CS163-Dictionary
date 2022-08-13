@@ -5471,7 +5471,7 @@ Crazy
 HAZE
 Type of marijuana
 HB
-Hug Back
+Hurry Back
 HB
 Hurry Back
 HBCU
@@ -5595,7 +5595,7 @@ Home and Garden Television
 HGV
 Heavy Goods Vehicle
 HH
-Ha-Ha
+Holding Hands
 HH
 Holding Hands
 HHIS
@@ -9999,7 +9999,7 @@ On The Third Hand
 OTTOMH
 Off The Top Of My Head
 OTW
-On The Way
+On The Whole
 OTW
 On The Whole
 OTY
@@ -15324,7 +15324,5 @@ Registered Trademark Symbol
 Trademark
 
 
-hello
-xin chao
-bad
-ngu
+
+

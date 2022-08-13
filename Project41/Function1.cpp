@@ -1,6 +1,6 @@
 #include "Header1.h"
 
-//void input_data_slang(unordered_map<string, string>& mymap10, ifstream& fin)
+//void input_data_slang_origin(unordered_map<string, string>& mymap10, ifstream& fin)
 //{
 //	fin.open("slang.txt");
 //	string path = "Data/slang.txt";
@@ -40,7 +40,7 @@
 //
 //	
 //}
-void input_data_slang(unordered_map<string, string>& mymap10, ifstream& fin)
+void input_data_slang(unordered_map<string, string>& mymap10, ifstream& fin, vector<string>& v)
 {
 	string path = "Data/slang.txt";
 	fin.open(path, ios::in);
@@ -50,11 +50,12 @@ void input_data_slang(unordered_map<string, string>& mymap10, ifstream& fin)
 		getline(fin, str);
 		getline(fin, str1);
 		mymap10[str] = str1;
+		v.push_back(str);
 	}
 	fin.close();
 }
 
-void input_data_emotional(unordered_map<string, string>& mymap10, ifstream& fin)
+void input_data_emotional(unordered_map<string, string>& mymap10, ifstream& fin, vector<string>& v)
 {
 	string path = "Data/emotional.txt";
 	fin.open(path, ios::in);
@@ -64,10 +65,11 @@ void input_data_emotional(unordered_map<string, string>& mymap10, ifstream& fin)
 		getline(fin, str);
 		getline(fin, str1);
 		mymap10[str] = str1;
+		v.push_back(str);
 	}
 	fin.close();
 }
-//void input_data_emotional(unordered_map<string, string>& mymap, ifstream& fin)
+//void input_data_emotional_origin(unordered_map<string, string>& mymap, ifstream& fin)
 //{
 //	fin.open("emotional.txt");
 //	string path = "Data/emotional.txt";

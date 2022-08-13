@@ -1,6 +1,6 @@
 #include "Header1.h"
 
-void function5_edit_definition(unordered_map<string, string>& mymap10, int dataset)
+void function5_edit_definition(unordered_map<string, string>& mymap10, vector<string>& v,int dataset)
 {
 	string str, str1;
 	cout << "Input word and definition you want to add: " << endl;
