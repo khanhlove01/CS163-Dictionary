@@ -145,6 +145,8 @@
     <ClCompile Include="Function2.cpp" />
     <ClCompile Include="Function3.cpp" />
     <ClCompile Include="Function5.cpp" />
+    <ClCompile Include="Function6.cpp" />
+    <ClCompile Include="Function7.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header1.h" />

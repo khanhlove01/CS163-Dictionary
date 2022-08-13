@@ -3,6 +3,7 @@
 void inter_face()
 {
 	unordered_map<string, string> mymap;
+	int dataset = 0;
 	while (1)
 	{
 		system("cls");
@@ -35,6 +36,7 @@ void inter_face()
 			int option;
 			cin >> option;
 			cout << "Input successfully!!!";
+			dataset = option;
 			ifstream fin;
 			if (option == 4)
 			{
@@ -70,12 +72,18 @@ void inter_face()
 		}
 		if (choose == 5)
 		{
-			function5_edit_definition(mymap);
+			function5_edit_definition(mymap,dataset);
 			system("pause");
 		}
 		if (choose == 6)
 		{
-
+			function6_edit_definition(mymap);
+			system("pause");
+		}
+		if (choose == 7)
+		{
+			function7_remove(mymap);
+			system("pause");
 		}
 	}
 }
