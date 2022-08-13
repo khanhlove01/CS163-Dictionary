@@ -143,6 +143,7 @@
     <ClCompile Include="Function1.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Function2.cpp" />
+    <ClCompile Include="Function3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header1.h" />
