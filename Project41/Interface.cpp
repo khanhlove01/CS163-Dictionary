@@ -68,5 +68,14 @@ void inter_face()
 			fin.close();
 			system("pause");
 		}
+		if (choose == 5)
+		{
+			function5_edit_definition(mymap);
+			system("pause");
+		}
+		if (choose == 6)
+		{
+
+		}
 	}
 }
