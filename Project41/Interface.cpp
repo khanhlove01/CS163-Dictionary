@@ -50,5 +50,9 @@ void inter_face()
 		{
 			function2_create_favouritelist(mymap);
 		}
+		if (choose == 3)
+		{
+			function3_search_definition(mymap);
+		}
 	}
 }

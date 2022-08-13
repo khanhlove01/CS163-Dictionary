@@ -14,3 +14,4 @@ void input_data_emotional(unordered_map<string, string>& mymap, ifstream& fin);
 
 void inter_face();
 void function2_create_favouritelist(unordered_map<string, string>& mymap10);
+void function3_search_definition(unordered_map<string, string>& mymap10);
