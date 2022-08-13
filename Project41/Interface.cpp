@@ -54,5 +54,19 @@ void inter_face()
 		{
 			function3_search_definition(mymap);
 		}
+		if (choose == 4)
+		{
+			string ss;
+			string path = "Data/History/list.txt";
+			ifstream fin;
+			fin.open(path, ios::in);
+			while (!fin.eof())
+			{
+				fin >> ss;
+				cout << ss << endl;
+			}
+			fin.close();
+			system("pause");
+		}
 	}
 }
