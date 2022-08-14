@@ -148,6 +148,8 @@
     <ClCompile Include="Function6.cpp" />
     <ClCompile Include="Function7.cpp" />
     <ClCompile Include="Function 8.cpp" />
+    <ClCompile Include="Function9.cpp" />
+    <ClCompile Include="Function10.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header1.h" />

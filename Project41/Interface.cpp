@@ -90,5 +90,14 @@ void inter_face()
 		{
 			function8_reset(mymap,dataset,v);
 		}
+		if (choose == 9)
+		{
+			function9_viewrandom(mymap, v);
+		}
+		if (choose == 10)
+		{
+			function10_viewfavouritelist();
+			system("pause");
+		}
 	}
 }

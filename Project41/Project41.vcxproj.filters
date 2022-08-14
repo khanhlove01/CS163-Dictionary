@@ -42,6 +42,12 @@
     <ClCompile Include="Function 8.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Function9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Function10.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header1.h">

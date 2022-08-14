@@ -6,6 +6,8 @@
 #include <string>
 #include <algorithm>
 #include<direct.h>
+#include <cstring>
+#include <cstdlib>
 
 using namespace std;
 
@@ -21,3 +23,5 @@ void function5_edit_definition(unordered_map<string, string>& mymap10, vector<st
 void function6_edit_definition(unordered_map<string, string>& mymap10, vector<string>& v,int dataset);
 void function7_remove(unordered_map<string, string>& mymap10, vector<string>& v, int dataset);
 void function8_reset(unordered_map<string, string>& mymap10,int dataset, vector <string>& v);
+void function9_viewrandom(unordered_map<string, string>& mymap10, vector<string>& v);
+void function10_viewfavouritelist();
