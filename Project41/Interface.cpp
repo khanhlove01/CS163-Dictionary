@@ -36,6 +36,8 @@ ifstream fin;
 * Bright White 15
 */
 
+
+
 void veTieuDeTuDien()
 {
 	short i;
@@ -54,6 +56,39 @@ void veTieuDeTuDien()
 	}
 }
 
+void veMenuChinh(short SIndex)
+{
+	//Cap nhat lai vi tri dang chon va tong muc cua menu
+	SViTriChon = SIndex;
+	STongMuc = 12;
+
+	//Ve menu
+	const char* STRNewGame = "Choose Data Sets";
+	setColorBGTextXY(8, MENU_TEXT_ROW, 15, ((SIndex == 0) ? 2 : 0), STRNewGame);
+	STRNewGame = "Add a word to favourite list";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 1, 15, ((SIndex == 1) ? 2 : 0), STRNewGame);
+	STRNewGame = "Search for a definition";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 2, 15, ((SIndex == 2) ? 2 : 0), STRNewGame);
+	STRNewGame = "View search history";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 3, 15, ((SIndex == 3) ? 2 : 0), STRNewGame);
+	STRNewGame = "Add a new word";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 4, 15, ((SIndex == 4) ? 2 : 0), STRNewGame);
+	STRNewGame = "Edit the definition of an existing word";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 5, 15, ((SIndex == 5) ? 2 : 0), STRNewGame);
+	STRNewGame = "Remove a word from the dictionary";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 6, 15, ((SIndex == 6) ? 2 : 0), STRNewGame);
+	STRNewGame = "Reset the dictionary";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 7, 15, ((SIndex == 7) ? 2 : 0), STRNewGame);
+	STRNewGame = "View a random word and its definition";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 8, 15, ((SIndex == 8) ? 2 : 0), STRNewGame);
+	STRNewGame = "View the favorite list";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 9, 15, ((SIndex == 9) ? 2 : 0), STRNewGame);
+	STRNewGame = "Remove/Add a word from the favourite list";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 10, 15, ((SIndex == 10) ? 2 : 0), STRNewGame);
+	STRNewGame = "Exit";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 11, 15, ((SIndex == 11) ? 2 : 0), STRNewGame);
+
+}
 
 
 void xuLyPhim(KEY_EVENT_RECORD key)
