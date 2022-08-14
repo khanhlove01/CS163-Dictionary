@@ -8,7 +8,13 @@ short STrang, SViTriChon, STongMuc;
 
 int main()
 {
-	
+	resizeConsole(ConsoleWidth, ConsoleHeight); // Console size
+	SetConsoleTitle(TEXT("Dictionary")); // Dictionary Title
+	Cursor(false);
+	veTieuDeTuDien();
+	veMenuChinh(0);
+	STrang = 1;
+	xuLySuKien();
 	
 	
 	/*unordered_map<string, string> mymap,mymap10;*/
