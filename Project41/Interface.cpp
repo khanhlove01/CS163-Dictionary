@@ -90,6 +90,35 @@ void veMenuChinh(short SIndex)
 
 }
 
+void veMenuNgonNgu(short SIndex)
+{
+	//Cap nhat lai vi tri dang chon va tong muc cua menu
+	SViTriChon = SIndex;
+	STongMuc = 6;
+
+	//Ve menu
+	const char* STRNewGame = "English to English";
+	setColorBGTextXY(8, MENU_TEXT_ROW, 15, ((SIndex == 0) ? 2 : 0), STRNewGame);
+	STRNewGame = "English to Vietnamese";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 1, 15, ((SIndex == 1) ? 2 : 0), STRNewGame);
+	STRNewGame = "Vietnamese to English";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 2, 15, ((SIndex == 2) ? 2 : 0), STRNewGame);
+	STRNewGame = "Slang Dictionary";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 3, 15, ((SIndex == 3) ? 2 : 0), STRNewGame);
+	STRNewGame = "Emotional Dictionary";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 4, 15, ((SIndex == 4) ? 2 : 0), STRNewGame);
+	STRNewGame = "Return";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 5, 15, ((SIndex == 5) ? 2 : 0), STRNewGame);
+}
+
+/*Cac loai menu
+* 1) Menu chinh
+* 2) chon ngon ngu
+* 3) Translate
+*/
+
+
+
 
 void xuLyPhim(KEY_EVENT_RECORD key)
 {
