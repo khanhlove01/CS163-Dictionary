@@ -36,6 +36,23 @@ ifstream fin;
 * Bright White 15
 */
 
+void veTieuDeTuDien()
+{
+	short i;
+	for (i = 0; i < ConsoleWidth; ++i)
+	{
+		printf("%c", 45);
+	}
+	const char* STRTitle = "Dictionary";
+	setColorBGTextXY((ConsoleWidth / 2) - (strlen(STRTitle) / 2), 1, 14, 0, STRTitle);
+	STRTitle = "Made by Group 11\n";
+	setColorBGTextXY((ConsoleWidth / 2) - (strlen(STRTitle) / 2), 2, 14, 0, STRTitle);
+	setColor(7);
+	for (i = 0; i < ConsoleWidth; ++i)
+	{
+		printf("%c", 45);
+	}
+}
 
 
 
