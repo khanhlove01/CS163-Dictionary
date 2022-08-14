@@ -1,4 +1,11 @@
 #include "Header1.h"
+#include "Console.h"
+#include "function.h"
+#include "main.h"
+#include <iostream>
+#include <fstream>
+#include <windows.h>
+#include <cstdlib>
 
 void function2_create_favouritelist(unordered_map<string, string>& mymap10)
 {
@@ -7,7 +14,8 @@ void function2_create_favouritelist(unordered_map<string, string>& mymap10)
 	ofstream fout;
 	path = "Data/Favourite_list/list.txt";
 	fout.open(path, ios::app);
-	cout << "Input word: ";
+	const char* STRTitle = "Input word: ";
+	setColorBGTextXY(8, MENU_TEXT_ROW + 1, 15, 0, STRTitle);
 	string str;
 	cin >> str;
 	if (mymap10.find(str) != mymap10.end())
@@ -15,12 +23,14 @@ void function2_create_favouritelist(unordered_map<string, string>& mymap10)
 		//fout << str << endl;
 		//fout << str << endl;
 		fout << str << endl;
-		cout << "Add successfully !!!";
+		STRTitle = "Add successfully !!!\n";
+		setColorBGTextXY(8, MENU_TEXT_ROW + 2, 15, 0, STRTitle);
 		system("pause");
 	}
 	else
 	{
-		cout << " Can't find the word you need !!!";
+		STRTitle = "Can't find the word you need !!!\n";
+		setColorBGTextXY(8, MENU_TEXT_ROW + 2, 15, 0, STRTitle);
 		system("pause");
 	}
 	fout.close();

@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Console.cpp" />
     <ClCompile Include="Project.cpp" />
     <ClCompile Include="Function1.cpp" />
     <ClCompile Include="Interface.cpp" />
@@ -152,7 +153,10 @@
     <ClCompile Include="Function10.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Console.h" />
+    <ClInclude Include="function.h" />
     <ClInclude Include="Header1.h" />
+    <ClInclude Include="main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

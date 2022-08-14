@@ -3,7 +3,7 @@
 void function3_search_definition(unordered_map<string, string>& mymap10)
 {
 	string str;
-	cout << "Input Key: " << endl;
+	cout << "Input Key: ";
 	cin >> str;
 	ofstream fout;
 	string path = "Data/History/list.txt";
