@@ -1,8 +1,4 @@
-﻿  Function2.cpp
-  Function5.cpp
-  Interface.cpp
+﻿  Interface.cpp
 D:\baitap\CS163-Dictionary\Project41\Interface.cpp(49,82): warning C4267: 'argument': conversion from 'size_t' to 'SHORT', possible loss of data
 D:\baitap\CS163-Dictionary\Project41\Interface.cpp(51,82): warning C4267: 'argument': conversion from 'size_t' to 'SHORT', possible loss of data
-  Project.cpp
-  Generating Code...
   Project41.vcxproj -> D:\baitap\CS163-Dictionary\x64\Debug\Project41.exe

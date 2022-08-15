@@ -319,23 +319,19 @@ void xuLyPhim(KEY_EVENT_RECORD key)
 					//Them code init dictionary o day
 					break;
 				case 3:
-					STrang = 3;
-					deleteRow(MENU_TEXT_ROW, 12);
+					STrang = 1;
 					input_data_slang(mymap, fin, v);
 					dataset = 4;
-					STrang = 1;
 					deleteRow(MENU_TEXT_ROW, 12);
 					veMenuChinh(0);
-					//break;
+					break;
 				case 4:
-					STrang = 3;
-					deleteRow(MENU_TEXT_ROW, 12);
+					STrang = 1;
 					input_data_emotional(mymap, fin, v);
 					dataset = 5;
-					STrang = 1;
 					deleteRow(MENU_TEXT_ROW, 12);
 					veMenuChinh(0);
-					//break;
+					break;
 				case 5:
 					STrang = 1;
 					deleteRow(MENU_TEXT_ROW, 12);
