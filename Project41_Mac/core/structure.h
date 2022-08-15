@@ -234,7 +234,7 @@ class Dictionary {
             if (!showWord) cout << "Definition: " << endl;
             else cout << "Definition of the word " << word->word << ":" << endl;
             word->display();
-            history->add(word->word);
+            if (showWord) history->add(word->word);
         }
 
         void recursiveDelete (Word* node) {
