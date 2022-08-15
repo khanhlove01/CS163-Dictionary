@@ -10,6 +10,7 @@ class Interface {
 		Dictionary *dictionary = NULL;
 		int currentDataset = 0;
 		ConsoleOperation *console = new ConsoleOperation();
+		Utils *utils = new Utils();
 		bool chooseDataSet();
 		bool addFavorite();
 		bool findWord();
@@ -21,6 +22,8 @@ class Interface {
 		bool randomWord();
 		bool viewFavorite();
 		bool removeFavorite();
+		bool guessWord();
+		bool guessMeaning();
 		bool exit();
 		bool prompt(string message);
 };
@@ -44,17 +47,19 @@ void Interface::run ()
 		cout << "=============== 9. View a random word and its definition " << endl;
 		cout << "=============== 10. View the favorite list " << endl;
 		cout << "=============== 11. Remove a word from the favourite list " << endl;
-		cout << "=============== 12. Exit the program " << endl;
+		cout << "=============== 12. Random a hidden word and guess its meaning " << endl;
+		cout << "=============== 13. Guess the correct meaning! " << endl;
+		cout << "=============== 14. Exit the program " << endl;
 		cout << "===============================================================" << endl;
 		cout << "Your option: ";
 		cin >> choose;
-		if (currentDataset == 0 && choose != 1 && choose != 12) {
+		if (currentDataset == 0 && choose != 1 && choose != 14) {
 			cout << "Please choose a dataset (option 1) first!" << endl;
 			console->pause();
 		}
 		else while (true) {
 			console->clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			// cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			bool done = false;
 			switch (choose) {
 				case 1: done = chooseDataSet(); break;
@@ -68,7 +73,9 @@ void Interface::run ()
 				case 9: done = randomWord(); break;
 				case 10: done = viewFavorite(); break;
 				case 11: done = removeFavorite(); break;
-				case 12: done = exit(); break;
+				case 12: done = guessWord(); break;
+				case 13: done = guessMeaning(); break;
+				case 14: done = exit(); break;
 			}
 			console->pause();
 			if (userExit) return;
@@ -225,8 +232,7 @@ bool Interface::reset () {
 }
 
 bool Interface::randomWord () {
-	if (dictionary->isEmpty()) cout << "No words to random!" << endl;
-	else dictionary->random();
+	dictionary->showRandom(true);
 	return true;
 }
 
@@ -243,6 +249,43 @@ bool Interface::removeFavorite () {
 	cin >> word;
 	if (!dictionary->favorites->remove(word)) cout << "Word doesn't exist in favorite list!" << endl;
 	else cout << "The word has been removed." << endl;
+	return true;
+}
+
+bool Interface::guessWord () {
+	string word = dictionary->showRandom(false);
+	if (word == "") return true;
+	cout << "What word is this? ";
+	string guess;
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	cin >> guess;
+	cout << "You guessed: " << guess << endl;
+	if (word == guess) cout << "That's right!";
+	else cout << "That's not the right one :(";
+	cout << endl << "The correct word is: " << word << endl;
+	return true;
+}
+
+bool Interface::guessMeaning () {
+	if (dictionary->isEmpty()) {
+		dictionary->showRandom(false);
+		return true;
+	}
+	int answer = utils->randInt(3) + 1;
+	string guessWord;
+	cout << "Given 4 definitions: " << endl;
+	for (int i = 1; i <=4; ++i) {
+		cout << endl << i << ". ";
+		string word = dictionary->showRandom(false);
+		if (i == answer) guessWord = word;
+	}
+	cout << endl << "What is the definition of the word: " << guessWord << " ? ";
+	int choose;
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	cin >> choose;
+	if (choose == answer) cout << "That's right!";
+	else cout << "Wrong answer :(";
+	cout << endl << "The answer is " << answer << "." << endl;
 	return true;
 }
 

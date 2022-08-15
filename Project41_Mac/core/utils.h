@@ -13,6 +13,6 @@ public:
     }
 
     int randInt (int range) {
-        return randIntInRange(0, range);
+        return randIntInRange(0, range - 1);
     }
 };

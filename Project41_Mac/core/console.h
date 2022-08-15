@@ -6,20 +6,11 @@ using namespace std;
 class ConsoleOperation {
     public:
         void clear () {
-            safeHandler("CLS");
-            safeHandler("clear");
+            cout << "\x1B[2J\x1B[H";
         }
         void pause () {
-            safeHandler("pause");
-            safeHandler("read");
-        }
-    private:
-        void safeHandler (const char *command) {
-            int duperr;
-            duperr = dup(2);
-            close(2); /* close stderr so the new process can't output the error */
-            system(command);
-            dup2(duperr, 2);
-            close(duperr);
+            cout << "Press any key to continue... ";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.get();
         }
 };

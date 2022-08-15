@@ -118,7 +118,7 @@ class Dictionary {
         void display (string word) {
             Character *result = find(word);
             if (result == NULL) cout << "No results found for the word '" << word << "'. Maybe you wish to add it as a custom word?" << endl;
-            else show(result);
+            else show(result, true);
         }
 
         bool import (string pathToFile, char discriminator, bool repeatable, bool ignoreFirstLine, bool isCustom) {
@@ -127,7 +127,7 @@ class Dictionary {
                 fin.close();
                 return false;
             }
-            Character *wordData;
+            Character *wordData = NULL;
             while (!fin.eof()) {
                 string str, word = "", definition = "";
                 int i = 0;
@@ -154,7 +154,7 @@ class Dictionary {
                     word = definition;
                     definition = "";
                     for (; i < str.length(); ++i) definition += str[i];
-                    if (word != "") wordData = add(word, definition, isCustom);
+                    if (word != "" && word[0] != '\0') wordData = add(word, definition, isCustom);
                 }
             }
                 
@@ -185,7 +185,17 @@ class Dictionary {
             custom.clear();
         }
 
-        void random () {
+        string showRandom (bool showWord) {
+            if (isEmpty()) {
+                cout << "No words to random!" << endl;
+                return "";
+            }
+            Character* word = getRandom();
+            show(word, showWord);
+            return word->word;
+        }
+
+        Character *getRandom() {
             return recursiveRandom(data);
         }
 
@@ -220,6 +230,13 @@ class Dictionary {
         string path;
         Utils *utils = new Utils();
 
+        void show (Character *word, bool showWord) {
+            if (!showWord) cout << "Definition: " << endl;
+            else cout << "Definition of the word " << word->word << ":" << endl;
+            word->display();
+            history->add(word->word);
+        }
+
         void recursiveDelete (Word* node) {
             if (node == NULL) return;
             remove(node->word);
@@ -227,21 +244,15 @@ class Dictionary {
             recursiveDelete(node->right);
         }
 
-        void show (Character *word) {
-            cout << "Definition of the word '" << word->word << "':" << endl;
-            word->display();
-            history->add(word->word);
-        }
-
-        void recursiveRandom (Character *word) {
-            if (word->nextCharacters->isEmpty()) return show(word);
+        Character* recursiveRandom (Character *word) {
+            if (word->nextCharacters->isEmpty()) return word;
             CharsetTree *tree = word->nextCharacters;
             vector <char> allChars = tree->toArray();
             int pool = allChars.size();
             if (word->isLastCharacter) ++pool;
             int randomizer = utils->randInt(pool);
-            if (randomizer == allChars.size()) show(word);
-            else recursiveRandom(tree->find(allChars[randomizer])->data);
+            if (randomizer == allChars.size()) return word;
+            return recursiveRandom(tree->find(allChars[randomizer])->data);
         }
 };
 
@@ -436,7 +447,6 @@ void CharsetTree::recursiveArray (vector<char> &arr, Charset* node) {
 // };
 
 void Character::display () {
-    cout << "Definition:" << endl;
     for (string def : definition) cout << " * " << def << endl;
 };
 
