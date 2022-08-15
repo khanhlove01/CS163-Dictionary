@@ -107,6 +107,10 @@ bool Interface::chooseDataSet () {
 		cout << "Invalid choice!" << endl;
 		return false;
 	}
+	else if (option == 6) {
+		cout << "Operation canceled." << endl;
+		return true;
+	}
 	else if (option == currentDataset) {
 		cout << "You are already in this dataset!" << endl;
 		return false;
@@ -120,7 +124,6 @@ bool Interface::chooseDataSet () {
 			case 3: name = "Vietnamese - English"; path = "vi-en"; break;
 			case 4: name = "Slang"; path = "slang"; break;
 			case 5: name = "Emotional"; path = "emotional"; break;
-			case 6: cout << "Operation canceled." << endl; return true;
 		}
 
 		if (dictionary != NULL) dictionary->close();
@@ -272,20 +275,32 @@ bool Interface::guessMeaning () {
 		return true;
 	}
 	int answer = utils->randInt(3) + 1;
-	string guessWord;
+	string guessWord = "";
 	cout << "Given 4 definitions: " << endl;
+	int answers[4], index = 0;
+	answers[index++] = answer;
 	for (int i = 1; i <=4; ++i) {
 		cout << endl << i << ". ";
 		string word = dictionary->showRandom(false);
 		if (i == answer) guessWord = word;
+		else if (word == guessWord) answers[index++] = i;
 	}
-	cout << endl << "What is the definition of the word: " << guessWord << " ? ";
+	cout << endl << "What is the definition of the word: " << guessWord << " ? (choose one if duplicates) ";
 	int choose;
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	cin >> choose;
-	if (choose == answer) cout << "That's right!";
-	else cout << "Wrong answer :(";
-	cout << endl << "The answer is " << answer << "." << endl;
+	bool right = false;
+	for (int i = 0; i < index; ++i) {
+		if (choose == answers[i]) {
+			cout << "That's right!";
+			right = true;
+			break;
+		}
+	}
+	if (!right) cout << "Wrong answer :(";
+	cout << endl << "Answer(s): ";
+	for (int i = 0; i < index - 1; ++i) cout << answers[i] << ", ";
+	cout << (index > 1 ? "or " : "") << answers[index - 1] << "." << endl;
 	return true;
 }
 
