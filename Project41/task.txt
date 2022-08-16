@@ -1,3 +1,4 @@
 favorite list
 edit the favorite list
 database file for EN-VI dictionary
+database file for VI-EN and EN-EN dictionary
