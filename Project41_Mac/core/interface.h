@@ -26,6 +26,7 @@ class Interface {
 		bool guessMeaning();
 		bool exit();
 		bool prompt(string message);
+		void readString(string &word);
 };
 
 void Interface::run ()
@@ -139,7 +140,7 @@ bool Interface::chooseDataSet () {
 bool Interface::addFavorite () {
 	string word;
 	cout << "Enter the word you want to add to the favorite list: ";
-	cin >> word;
+	readString(word);
 	if (!dictionary->wordExists(word)) {
 		cout << "Word does not exist!" << endl;
 		return true;
@@ -155,7 +156,8 @@ bool Interface::addFavorite () {
 bool Interface::findWord () {
 	cout << "Enter the one you want to lookup: ";
 	string word;
-	cin >> word;
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	getline(cin, word);
 	dictionary->display(word);
 	return true;
 }
@@ -170,15 +172,14 @@ bool Interface::viewHistory () {
 bool Interface::addWord () {
 	cout << "Enter the new word you want to add: ";
 	string word;
-	cin >> word;
+	readString(word);
 	if (dictionary->wordExists(word)) {
 		cout << "Word already exists!" << endl;
 		return true;
 	}
 	cout << "Type the definition: ";
 	string definition;
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	getline(cin, definition);
+	readString(definition);
 	dictionary->add(word, definition, true);
 	cout << "Your new word has been added." << endl;
 	return true;
@@ -187,7 +188,7 @@ bool Interface::addWord () {
 bool Interface::editWord () {
 	cout << "Enter the word you want to edit: ";
 	string word;
-	cin >> word;
+	readString(word);
 	Character *res = dictionary->find(word);
 	if (res == NULL) {
 		cout << "Word doesn't exist" << endl;
@@ -199,8 +200,7 @@ bool Interface::editWord () {
 	}
 	cout << "Type the new definition: ";
 	string definition;
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	getline(cin, definition);
+	readString(definition);
 	res->definition.clear();
 	res->definition.push_back(definition);
 	cout << "Your changes have been applied." << endl;
@@ -260,8 +260,7 @@ bool Interface::guessWord () {
 	if (word == "") return true;
 	cout << "What word is this? ";
 	string guess;
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	cin >> guess;
+	readString(guess);
 	cout << "You guessed: " << guess << endl;
 	if (word == guess) cout << "That's right!";
 	else cout << "That's not the right one :(";
@@ -309,4 +308,9 @@ bool Interface::exit () {
 	userExit = true;
 	cout << "Thank you for using our dictionary!" << endl;
 	return true;
+}
+
+void Interface::readString(string &word) {
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	getline(cin, word);
 }
