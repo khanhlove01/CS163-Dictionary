@@ -1,1 +1,2 @@
 favorite list
+edit the favorite list
